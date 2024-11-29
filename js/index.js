@@ -1,40 +1,84 @@
-function toggleTheme() {
-    const body = document.querySelector("body");
-    const icon = document.getElementById("icon");
-    if (body.className === 'dark') {
-        body.className = 'light'
-        icon.className = 'fa fa-moon-o'
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle Functionality
+    const themeToggle = document.querySelector('.toggle-bar button');
+    const icon = document.getElementById('icon');
+    const body = document.body;
+
+    // Check for saved theme preference or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark-theme');
+            icon.classList.replace('fa-moon-o', 'fa-sun-o');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark-theme');
+            icon.classList.replace('fa-sun-o', 'fa-moon-o');
+            localStorage.removeItem('theme');
+        }
     }
-    else {
-        body.className = 'dark'
-        icon.className = 'fa fa-sun-o'
+
+    // Initial theme setup
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        setTheme('dark');
     }
-}
 
-const burger = document.getElementById('burger');
-const ul = document.querySelector('nav ul');
-const homeAnchor = document.getElementById('home-anchor');
-const stackAnchor = document.getElementById('stack-anchor');
-const eduAnchor = document.getElementById('edu-anchor');
-const expAnchor = document.getElementById('exp-anchor');
-const projAnchor = document.getElementById('proj-anchor');
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-theme')) {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+    });
 
-burger.addEventListener('click', () => {
-    ul.classList.toggle('show');
-})
+    // Mobile Navigation Toggle
+    const burger = document.getElementById('burger');
+    const navMenu = document.querySelector('nav ul');
 
-homeAnchor.addEventListener('click', () => {
-    ul.classList.toggle('show');
-})
-stackAnchor.addEventListener('click', () => {
-    ul.classList.toggle('show');
-})
-eduAnchor.addEventListener('click', () => {
-    ul.classList.toggle('show');
-})
-expAnchor.addEventListener('click', () => {
-    ul.classList.toggle('show');
-})
-projAnchor.addEventListener('click', () => {
-    ul.classList.toggle('show');
-})
+    burger.addEventListener('click', () => {
+        navMenu.classList.toggle('show-menu');
+    });
+
+    // Smooth Scrolling for Navigation
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (link.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after click
+                navMenu.classList.remove('show-menu');
+            }
+        });
+    });
+
+    // Section Reveal on Scroll
+    const sections = document.querySelectorAll('.profile, .tech-stack, .projects, .experience, .education');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-section');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
