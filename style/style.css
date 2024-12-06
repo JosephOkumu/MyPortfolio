@@ -249,10 +249,20 @@ nav ul li a:hover::after {
   padding: 5px;
 }
 
-.experience .exp .role,
-.experience .exp .company,
-.experience .exp .date {
-  font-weight: bold;
+.experience .exp {
+  text-align: center;
+  font-size: 1.25em;
+  margin: 0.75em 0;
+  padding: 0.5em;
+  background-color: #1f4068;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.experience .exp:hover {
+  transform: scale(1.05);
+  background-color: #1f4068;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .experience .exp .role i,
@@ -464,13 +474,24 @@ footer > span > a {
   .projects .project-section .content {
     width: 100%;
   }
+  
+}
+.education .edu,
+.education .edu {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 1.25em;
+  margin: 0.75em 0;
+  padding: 0.5em;
+  background-color: #1f4068;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
 
-  .education .edu,
-  .experience .exp {
-    align-items: center;
-    justify-self: center;
-    text-align: center;
-  }
+.education .edu:hover {
+  transform: scale(1.05);
+  background-color: #1f4068;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #tech-stack {
