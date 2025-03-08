@@ -9,64 +9,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Theme Variables */
-:root {
-  --primary-bg: #1a2b3c;
-  --secondary-bg: #1f4068;
-  --accent-color: #3a94c0;
-  --text-color: #f4f7f9;
-  --text-secondary: #e6eaf0;
-  --card-bg: #1f4068;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --hover-color: #0594ec;
-}
-
-/* Dark Theme - Default */
-.dark-theme {
-  --primary-bg: #1a2b3c;
-  --secondary-bg: #1f4068;
-  --accent-color: #3a94c0;
-  --text-color: #f4f7f9;
-  --text-secondary: #e6eaf0;
-  --card-bg: #1f4068;
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --hover-color: #0594ec;
-}
-
-/* Light Theme */
-.light-theme {
-  --primary-bg: #f5f8fa;
-  --secondary-bg: #ffffff;
-  --accent-color: #2c7da0;
-  --text-color: #2c405e;
-  --text-secondary: #4e5d78;
-  --card-bg: #ffffff;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --hover-color: #3a94c0;
-}
-
-/* Animation Classes */
-.animate-section {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  transition: all 0.3s ease;
-  background-color: var(--primary-bg);
-  color: var(--text-color);
+  background-color: #1a2b3c;
+  color: #f4f7f9;
 }
 
 button {
@@ -74,25 +21,24 @@ button {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  background-color: var(--accent-color);
-  transition: all 0.3s ease;
+  background-color: #3a94c0;
   color: #ffffff;
-  box-shadow: 0 3px 5px var(--shadow-color);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-  background-color: var(--hover-color);
+  background-color: #0594ec;
   transform: translateY(-3px);
-  box-shadow: 0 4px 6px var(--shadow-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:focus {
-  background-color: var(--hover-color);
+  background-color: #0594ec;
   outline: none;
 }
 
 nav {
-  box-shadow: 0 2px 10px var(--shadow-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,8 +46,8 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--secondary-bg);
-  color: var(--text-secondary);
+  background-color: #1f4068;
+  color: #e6eaf0;
 }
 
 nav p {
@@ -115,11 +61,12 @@ nav p {
 .burger {
   display: none;
   background-color: transparent;
-  color: var(--accent-color);
+  color: #0594ec;
   font-size: 24px;
   border: none;
   cursor: pointer;
   box-shadow: none;
+  z-index: 101;
 }
 
 .burger:focus {
@@ -152,7 +99,7 @@ nav ul li a::after {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--accent-color);
+  background-color: #3a94c0;
   transition: width 0.3s ease;
 }
 
@@ -178,7 +125,7 @@ nav ul li a:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--accent-color);
+  background-color: #3a94c0;
   color: white;
   transition: all 0.3s ease;
 }
@@ -308,15 +255,15 @@ nav ul li a:hover::after {
   margin-bottom: 15px;
   text-align: left;
   font-size: 1rem;
-  background-color: var(--card-bg);
+  background-color: #1f4068;
   border-radius: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px var(--shadow-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .experience .exp:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 8px var(--shadow-color);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .experience .exp .role,
@@ -330,17 +277,17 @@ nav ul li a:hover::after {
 
 .experience .exp .role {
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: #f4f7f9;
 }
 
 .experience .exp .company {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #e6eaf0;
 }
 
 .experience .exp .date {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #e6eaf0;
   opacity: 0.7;
   margin-bottom: 15px;
 }
@@ -356,7 +303,7 @@ nav ul li a:hover::after {
   margin-right: 10px;
   width: 20px;
   text-align: center;
-  color: var(--accent-color);
+  color: #3a94c0;
 }
 
 .education .edu {
@@ -367,15 +314,15 @@ nav ul li a:hover::after {
   text-align: left;
   font-size: 1rem;
   margin: 0.75em 0;
-  background-color: var(--card-bg);
+  background-color: #1f4068;
   border-radius: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px var(--shadow-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .education .edu:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 8px var(--shadow-color);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .education .edu .course,
@@ -389,17 +336,17 @@ nav ul li a:hover::after {
 
 .education .edu .course {
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: #f4f7f9;
 }
 
 .education .edu .school {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: #e6eaf0;
 }
 
 .education .edu .date {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #e6eaf0;
   opacity: 0.7;
 }
 
@@ -409,7 +356,7 @@ nav ul li a:hover::after {
   margin-right: 10px;
   width: 20px;
   text-align: center;
-  color: var(--accent-color);
+  color: #3a94c0;
 }
 
 .projects {
@@ -437,19 +384,19 @@ nav ul li a:hover::after {
   padding: 16px 10px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 1px var(--shadow-color);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 5px 5px;
-  background-color: var(--card-bg);
+  background-color: #1f4068;
 }
 
 .projects .project-section .content .footer > h3 {
   margin: 0;
-  color: var(--text-color);
+  color: #f4f7f9;
 }
 
 .projects .project-section .content .footer > p {
   font-size: 12px;
-  color: var(--text-secondary);
+  color: #e6eaf0;
 }
 
 .projects .project-section .content .footer > a {
@@ -463,12 +410,12 @@ nav ul li a:hover::after {
   padding: 10px;
   box-sizing: border-box;
   border-radius: 5px;
-  background-color: var(--accent-color);
+  background-color: #3a94c0;
   transition: all 0.3s ease;
 }
 
 .projects .project-section .content .footer > a:hover {
-  background-color: var(--hover-color);
+  background-color: #0594ec;
   transform: scale(1.05);
 }
 
@@ -576,7 +523,7 @@ footer.footer .git_link:hover {
   font-size: 1.8rem;
   margin-bottom: 25px;
   text-align: center;
-  color: var(--text-color);
+  color: #f4f7f9;
 }
 
 .tech-stack h2:after,
@@ -590,7 +537,7 @@ footer.footer .git_link:hover {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background-color: var(--accent-color);
+  background-color: #3a94c0;
   border-radius: 3px;
 }
 
@@ -647,7 +594,7 @@ footer.footer .git_link:hover {
   }
 
   nav ul {
-    background-color: var(--secondary-bg);
+    background-color: #1f4068;
     flex-direction: column;
     position: fixed;
     top: 0;
@@ -659,7 +606,7 @@ footer.footer .git_link:hover {
     transition: transform 0.4s ease;
     z-index: 100;
     padding: 80px 0 20px 0;
-    box-shadow: 0 5px 10px var(--shadow-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
   nav ul.show {

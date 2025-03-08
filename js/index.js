@@ -1,39 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle Functionality
+    // Theme Toggle Functionality - Simple Version
     const themeToggle = document.getElementById('themeToggle');
     const icon = document.getElementById('icon');
-    const body = document.body;
+    
+    // Only handle the theme toggle click for simple light/dark switching
+    let isLightTheme = false;
 
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('theme');
-
-    function setTheme(theme) {
-        if (theme === 'light') {
-            body.classList.remove('dark-theme');
-            body.classList.add('light-theme');
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.add('dark-theme');
-            body.classList.remove('light-theme');
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'dark');
-        }
-    }
-
-    // Initial theme setup - default to dark unless explicitly set to light
-    if (savedTheme === 'light') {
-        setTheme('light');
-    } else {
-        setTheme('dark');
-    }
-
-    // Toggle theme when button is clicked
     themeToggle.addEventListener('click', () => {
-        if (body.classList.contains('dark-theme')) {
-            setTheme('light');
+        if (!isLightTheme) {
+            // Switch to light theme
+            document.body.style.backgroundColor = '#ffffff';
+            document.body.style.color = '#2c405e';
+            
+            // Update navigation color
+            document.querySelector('nav').style.backgroundColor = '#ffffff';
+            document.querySelector('nav').style.color = '#2c405e';
+            
+            // Update card backgrounds
+            const cards = document.querySelectorAll('.experience .exp, .education .edu, .projects .project-section .content .footer');
+            cards.forEach(card => {
+                card.style.backgroundColor = '#ffffff';
+                card.style.color = '#2c405e';
+            });
+            
+            // Update headings
+            const headings = document.querySelectorAll('h2, h3, .role, .course');
+            headings.forEach(heading => {
+                heading.style.color = '#2c405e';
+            });
+            
+            // Change icon
+            icon.classList.replace('fa-moon', 'fa-sun');
+            
+            isLightTheme = true;
         } else {
-            setTheme('dark');
+            // Switch back to dark theme (reset inline styles)
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+            
+            // Reset navigation color
+            document.querySelector('nav').style.backgroundColor = '';
+            document.querySelector('nav').style.color = '';
+            
+            // Reset card backgrounds
+            const cards = document.querySelectorAll('.experience .exp, .education .edu, .projects .project-section .content .footer');
+            cards.forEach(card => {
+                card.style.backgroundColor = '';
+                card.style.color = '';
+            });
+            
+            // Reset headings
+            const headings = document.querySelectorAll('h2, h3, .role, .course');
+            headings.forEach(heading => {
+                heading.style.color = '';
+            });
+            
+            // Change icon back
+            icon.classList.replace('fa-sun', 'fa-moon');
+            
+            isLightTheme = false;
         }
     });
 
