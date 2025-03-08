@@ -1,30 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Functionality
-    const themeToggle = document.querySelector('.toggle-bar button');
+    const themeToggle = document.getElementById('themeToggle');
     const icon = document.getElementById('icon');
     const body = document.body;
 
-    // Check for saved theme preference or system preference
+    // Check for saved theme preference or default to dark
     const savedTheme = localStorage.getItem('theme');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
     function setTheme(theme) {
-        if (theme === 'dark') {
-            body.classList.add('dark-theme');
-            icon.classList.replace('fa-moon-o', 'fa-sun-o');
-            localStorage.setItem('theme', 'dark');
-        } else {
+        if (theme === 'light') {
             body.classList.remove('dark-theme');
-            icon.classList.replace('fa-sun-o', 'fa-moon-o');
-            localStorage.removeItem('theme');
+            body.classList.add('light-theme');
+            icon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            icon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'dark');
         }
     }
 
-    // Initial theme setup
-    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+    // Initial theme setup - default to dark unless explicitly set to light
+    if (savedTheme === 'light') {
+        setTheme('light');
+    } else {
         setTheme('dark');
     }
 
+    // Toggle theme when button is clicked
     themeToggle.addEventListener('click', () => {
         if (body.classList.contains('dark-theme')) {
             setTheme('light');
@@ -38,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('nav ul');
 
     burger.addEventListener('click', () => {
-        navMenu.classList.toggle('show-menu');
+        navMenu.classList.toggle('show');
     });
 
     // Smooth Scrolling for Navigation
@@ -51,17 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetId = link.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
                 
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
 
                 // Close mobile menu after click
-                navMenu.classList.remove('show-menu');
+                navMenu.classList.remove('show');
             }
         });
     });
 
-    // Section Reveal on Scroll
+    // Add animation class when sections come into view
     const sections = document.querySelectorAll('.profile, .tech-stack, .projects, .experience, .education');
     
     const observerOptions = {
