@@ -29,6 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 heading.style.color = '#2c405e';
             });
             
+            // Update company, school and date text for visibility in light mode
+            const companyTexts = document.querySelectorAll('.experience .exp .company, .experience .exp .date');
+            companyTexts.forEach(text => {
+                text.style.color = '#2c405e';
+            });
+            
+            const schoolTexts = document.querySelectorAll('.education .edu .school, .education .edu .date');
+            schoolTexts.forEach(text => {
+                text.style.color = '#2c405e';
+            });
+            
+            // Update description text
+            const descriptions = document.querySelectorAll('.experience .exp .description, .education .edu p');
+            descriptions.forEach(desc => {
+                desc.style.color = '#4e5d78';
+            });
+            
+            // Update icons
+            const icons = document.querySelectorAll('.experience .exp i, .education .edu i');
+            icons.forEach(icon => {
+                icon.style.color = '#2c7da0';
+            });
+            
+            // Update footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.backgroundColor = '#f5f8fa';
+                footer.style.color = '#2c405e';
+            }
+            
             // Change icon
             icon.classList.replace('fa-moon', 'fa-sun');
             
@@ -54,6 +84,36 @@ document.addEventListener('DOMContentLoaded', () => {
             headings.forEach(heading => {
                 heading.style.color = '';
             });
+            
+            // Reset company, school and date text
+            const companyTexts = document.querySelectorAll('.experience .exp .company, .experience .exp .date');
+            companyTexts.forEach(text => {
+                text.style.color = '';
+            });
+            
+            const schoolTexts = document.querySelectorAll('.education .edu .school, .education .edu .date');
+            schoolTexts.forEach(text => {
+                text.style.color = '';
+            });
+            
+            // Reset description text
+            const descriptions = document.querySelectorAll('.experience .exp .description, .education .edu p');
+            descriptions.forEach(desc => {
+                desc.style.color = '';
+            });
+            
+            // Reset icons
+            const icons = document.querySelectorAll('.experience .exp i, .education .edu i');
+            icons.forEach(icon => {
+                icon.style.color = '';
+            });
+            
+            // Reset footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.backgroundColor = '';
+                footer.style.color = '';
+            }
             
             // Change icon back
             icon.classList.replace('fa-sun', 'fa-moon');
