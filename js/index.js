@@ -40,9 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Navigation Toggle
     const burger = document.getElementById('burger');
     const navMenu = document.querySelector('nav ul');
+    const burgerIcon = burger.querySelector('i');
 
     burger.addEventListener('click', () => {
         navMenu.classList.toggle('show');
+        
+        // Toggle burger icon between bars and times
+        if (navMenu.classList.contains('show')) {
+            burgerIcon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            burgerIcon.classList.replace('fa-times', 'fa-bars');
+        }
     });
 
     // Smooth Scrolling for Navigation
@@ -61,10 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-                // Close mobile menu after click
+                // Close mobile menu after clicking a link
                 navMenu.classList.remove('show');
+                if (burgerIcon.classList.contains('fa-times')) {
+                    burgerIcon.classList.replace('fa-times', 'fa-bars');
+                }
             }
         });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('show') && 
+            !navMenu.contains(e.target) && 
+            e.target !== burger && 
+            !burger.contains(e.target)) {
+            navMenu.classList.remove('show');
+            burgerIcon.classList.replace('fa-times', 'fa-bars');
+        }
     });
 
     // Add animation class when sections come into view
