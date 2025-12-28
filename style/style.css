@@ -10,11 +10,11 @@
     --nav-bg: rgba(15, 23, 42, 0.8);
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
-    
+
     /* Fonts */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Transitions */
     --transition-speed: 0.3s;
 }
@@ -53,7 +53,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--text-primary);
@@ -103,34 +108,30 @@ nav p {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 0.5rem;
 }
 
 nav ul li a {
-    color: var(--text-secondary);
-    font-weight: 500;
+    color: var(--text-primary);
+    font-weight: 600;
     font-size: 0.95rem;
-    position: relative;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all var(--transition-speed);
+    border: 1px solid transparent;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
     color: var(--accent-color);
+    background-color: rgba(56, 189, 248, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    transform: translateY(-2px);
 }
 
 nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: width var(--transition-speed);
-}
-
-nav ul li a:hover::after {
-    width: 100%;
+    display: none;
 }
 
 .burger {
@@ -182,7 +183,7 @@ nav ul li a:hover::after {
     margin: 0 auto;
 }
 
-.profile > img {
+.profile>img {
     width: 280px;
     height: 280px;
     border-radius: 50%;
@@ -193,9 +194,17 @@ nav ul li a:hover::after {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .profile .bio-text {
@@ -256,7 +265,10 @@ nav ul li a:hover::after {
 }
 
 /* Section Common Styles */
-.tech-stack, .projects, .experience, .education {
+.tech-stack,
+.projects,
+.experience,
+.education {
     padding: 6rem 5%;
     max-width: 1200px;
     margin: 0 auto;
@@ -340,7 +352,7 @@ h2::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
 }
 
 .projects .footer {
@@ -378,7 +390,8 @@ h2::after {
 }
 
 /* Experience & Education Cards */
-.exp, .edu {
+.exp,
+.edu {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 16px;
@@ -389,7 +402,8 @@ h2::after {
     overflow: hidden;
 }
 
-.exp::before, .edu::before {
+.exp::before,
+.edu::before {
     content: '';
     position: absolute;
     top: 0;
@@ -399,12 +413,14 @@ h2::after {
     background-color: var(--accent-color);
 }
 
-.exp:hover, .edu:hover {
+.exp:hover,
+.edu:hover {
     transform: translateX(10px);
     background-color: var(--card-hover);
 }
 
-.role, .course {
+.role,
+.course {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -412,7 +428,8 @@ h2::after {
     margin-bottom: 0.5rem;
 }
 
-.company, .school {
+.company,
+.school {
     font-size: 1rem;
     color: var(--accent-color);
     font-weight: 600;
@@ -454,17 +471,17 @@ footer.footer p {
         gap: 2rem;
         padding-top: 6rem;
     }
-    
+
     .profile .bio-text h2 {
         font-size: 2.5rem;
     }
-    
+
     .profile .bio-text {
         align-items: center;
         display: flex;
         flex-direction: column;
     }
-    
+
     .social-media {
         justify-content: center;
     }
@@ -474,7 +491,7 @@ footer.footer p {
     .burger {
         display: block;
     }
-    
+
     nav ul {
         position: fixed;
         top: 0;
@@ -488,11 +505,11 @@ footer.footer p {
         transition: transform var(--transition-speed);
         box-shadow: -10px 0 30px var(--shadow-color);
     }
-    
+
     nav ul.show {
         transform: translateX(0);
     }
-    
+
     .stack-images img {
         width: 60px;
         height: 60px;
@@ -510,6 +527,7 @@ footer.footer p {
     opacity: 1;
     transform: translateY(0);
 }
+
 /* Project Background Images */
 .projects .content .top {
     background: url("../assets/img/redginger.png");
