@@ -214,11 +214,30 @@ nav ul li a::after {
 
 .profile .bio-text h2 {
     font-size: 3.5rem;
+    font-weight: 700;
     line-height: 1.1;
     margin-bottom: 0.5rem;
-    background: linear-gradient(to right, var(--text-primary), var(--accent-color));
+    background: linear-gradient(to right,
+            var(--text-primary) 20%,
+            var(--accent-color) 30%,
+            #8b5cf6 70%,
+            var(--text-primary) 80%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s linear infinite;
+    letter-spacing: -1px;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
 }
 
 .profile .bio-text span {
@@ -290,7 +309,7 @@ h2::after {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 120px;
     height: 4px;
     background: var(--accent-color);
     border-radius: 2px;
