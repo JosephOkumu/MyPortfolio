@@ -473,6 +473,7 @@ h2::after {
     height: 200px;
     background-size: cover !important;
     background-position: center !important;
+    background-repeat: no-repeat !important;
     position: relative;
 }
 
@@ -661,36 +662,41 @@ footer.footer p {
 
 /* Project Background Images */
 .projects .content .top {
-    background: url("../assets/img/redginger.png");
+    background-image: url("../assets/img/redginger.png");
 }
 
 .projects .content .fourth {
-    background: url("../assets/img/larsfood.png");
+    background-image: url("../assets/img/larsfood.png");
 }
 
 .projects .content .sixth {
-    background: url("../assets/img/junubin.png");
+    background-image: url("../assets/img/junubin.png");
 }
 
 .projects .content .seventh {
-    background: url("../assets/img/BrunoSafaris.png");
+    background-image: url("../assets/img/BrunoSafaris.png");
 }
 
 .projects .content .eighth {
-    background: url("../assets/img/bigfish.png");
+    background-image: url("../assets/img/bigfish.png");
 }
+
 .projects .content .aceso {
-    background: url("../assets/img/acesohealth.png");
+    background-image: url("../assets/img/acesohealth.png");
 }
 
 .projects .content .jobpass {
-    background: url("../assets/img/jobpass.png");
+    background-image: url("../assets/img/jobpass.png");
 }
 
 .projects .content .bima {
-    background: url("../assets/img/bima-app.jpg");
+    background-image: url("../assets/img/bima-app.jpg");
 }
 
 .projects .content .altratek {
-    background: url("../assets/img/Altratek.png");
+    background-image: url("../assets/img/Altratek.png");
+}
+
+.projects .content .beautyglam {
+    background-image: url("../assets/img/beautyglam.png");
 }
