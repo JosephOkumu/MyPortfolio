@@ -328,19 +328,53 @@ h2::after {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 2rem;
 }
 
-.stack-images img {
-    width: 80px;
-    height: 80px;
-    transition: transform var(--transition-speed), filter var(--transition-speed);
-    filter: grayscale(100%) opacity(0.7);
+.tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    width: 140px;
+    height: 140px;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-.stack-images img:hover {
+.tech-card:hover {
+    transform: translateY(-10px);
+    background-color: var(--card-hover);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border-color: var(--accent-color);
+}
+
+.tech-card i {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    transition: all var(--transition-speed);
+    /* Ensure colored icons show their colors */
+}
+
+.tech-card:hover i {
     transform: scale(1.1);
-    filter: grayscale(0%) opacity(1);
+}
+
+.tech-card span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--transition-speed);
+}
+
+.tech-card:hover span {
+    color: var(--text-primary);
 }
 
 /* Projects */
