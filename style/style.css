@@ -217,18 +217,16 @@ nav ul li a::after {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 0.5rem;
-    background: linear-gradient(to right,
-            var(--text-primary) 20%,
-            var(--accent-color) 30%,
-            #8b5cf6 70%,
-            var(--text-primary) 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientFlow 3s linear infinite;
     letter-spacing: -1px;
+    /* Reset positioning for the profile title since it's not centered like other h2s */
+    position: relative;
+    display: inline-block;
+    left: auto;
+    transform: none;
+    text-align: left;
 }
+
+
 
 @keyframes gradientFlow {
     0% {
@@ -301,6 +299,16 @@ h2 {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+    background: linear-gradient(to right,
+            var(--text-primary) 20%,
+            var(--accent-color) 30%,
+            #8b5cf6 70%,
+            var(--text-primary) 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s linear infinite;
 }
 
 h2::after {
