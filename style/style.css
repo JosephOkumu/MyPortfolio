@@ -325,10 +325,12 @@ h2::after {
 
 /* Tech Stack */
 .stack-images {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1rem;
+    justify-items: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .tech-card {
@@ -571,9 +573,9 @@ footer.footer p {
         transform: translateX(0);
     }
 
-    .stack-images img {
-        width: 60px;
-        height: 60px;
+    .stack-images {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 }
 
