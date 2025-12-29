@@ -317,7 +317,7 @@ h2::after {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
+    width: 100%;
     height: 4px;
     background: var(--accent-color);
     border-radius: 2px;
